@@ -4,6 +4,7 @@
 .seminar {
     --main-color: #3B7ABC;
     --dark-color: #054a71;
+    --gray: #898989;
     --contrast-color: #ce2534;
     --bg-color: #d6dfe2;
     --radius: 20px;
@@ -30,39 +31,88 @@
     border-radius: var(--radius);
     padding: 15px;
 }
-.seminar__aside {
-    width: 25%;
-    list-style: none;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+
+.seminar__top {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
 }
-.seminar__aside li:not(:first-child) {
-    margin-top: 15px;
+.seminar__top-date {
+    font-size: 16px;
+    white-space: nowrap;
+    margin-left: 1em;
 }
-.seminar__preview {
-    background-color: #fff;
+.seminar__top-date span {
+    font-family: 'Tenor Sans';
+    font-size: 1.2em;
+    color: var(--dark-color);
+}
+
+
+.seminar__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-bottom: 25px;
+    gap: 5px 20px;
+}
+.seminar__buttons button, .seminar__buttons a {
+    background-color: var(--bg-color);
+    color: var(--dark-color);
+    padding: 10px 15px;
+    border: var(--radius);
     border-radius: var(--radius);
-    padding: 10px;
+    transition: 250ms ease-in;
+    transition-property: color, background-color;
+}
+.seminar__buttons button:hover, .seminar__buttons a:hover,
+.seminar__buttons button:focus, .seminar__buttons a:focus {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.seminar__info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 15px;
-    display: block;
 }
-.seminar__preview img {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    margin-bottom: 5px;
+.seminar__info-text {
+    width: 55%;
 }
-.seminar__preview-time {
-    color: var(--main-color);
-    font-size: 12px;
+.seminar__tags {
+    list-style: none;
+    padding: 0px !important;
     margin-bottom: 5px;
+    color: var(--gray);
+    font-family: 'Tenor Sans';
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 5px 10px;
+}
+.seminar__tags li::before{
+    content: '#';
+}
+.seminar__info .seminar__buttons {
+    width: 40%;
+    justify-content: flex-end;
+    gap: 5px 10px;
+    margin-bottom: 0px;
 }
 
 .seminar__video {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-sm);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .seminar__video video, .seminar__video iframe {
     position: relative;
@@ -89,26 +139,10 @@
 .seminar__video:hover::before {
     content: unset;
 }
-@media (max-width: 1023px) {
-    .seminar__video video, .seminar__video iframe {
-        height: 36vw;
-    }
-}
-@media (max-width: 767px) {
-    .seminar__main {
-        width: 100%;
-    }
-    .seminar__aside {
-        display: none;
-    }
-    .seminar__video video, .seminar__video iframe {
-        height: 50vw;
-    }
-}
 
 .seminar__h1 {
     font-family: 'Tenor Sans';
-    font-size: 35px;
+    font-size: 30px;
     line-height: 120%;
     text-align: left;
     margin-top: 0px;
@@ -116,11 +150,12 @@
 }
 .seminar__h2 {
     font-family: 'Tenor Sans';
-    font-size: 25px;
+    font-size: 20px;
     line-height: 120%;
     text-align: left;
     margin-top: 0px;
     margin-bottom: 15px;
+	color: #777777;
 }
 .seminar__h3 {
     font-family: 'Arimo';
@@ -128,12 +163,22 @@
     line-height: 120%;
     text-align: left;
     margin-top: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 .seminar__h3 span {
     font-family: 'Tenor Sans';
     font-size: 1.2em;
     color: var(--dark-color);
+}
+.seminar__h4 {
+    font-family: 'Tenor Sans';
+    font-size: 18px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: 15px;
 }
 .seminar__h6 {
     font-family: 'Arimo';
@@ -144,33 +189,20 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
-@media (max-width: 767px) {
-    .seminar {
-        font-size: 14px;
-    }
-    .seminar__h1 {
-        font-size: 24px;
-    }
-    .seminar__h2 {
-        font-size: 20px;
-    }
-    .seminar__h3 {
-        font-size: 14px;
-    }
-}
 
 .seminar__text {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 .seminar__text p:not(:first-child) {
     margin-top: 10px;
 }
 
+
 .seminar__docs {
     background-color: var(--bg-color);
     border-radius: var(--radius-sm);
     padding: 15px;
-    margin: 25px 0px 30px;
+    margin-bottom: 30px;
 }
 .seminar__docs ul {
     padding: 0px !important;
@@ -208,35 +240,12 @@
 }
 
 
-.seminar__buttons {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    margin-bottom: 25px;
-}
-.seminar__buttons button, .seminar__buttons a {
-    background-color: var(--bg-color);
-    color: var(--dark-color);
-    padding: 10px 15px;
-    border: var(--radius);
-    margin-right: 15px;
-    margin-bottom: 5px;
-    border-radius: var(--radius);
-    transition: 250ms ease-in;
-    transition-property: color, background-color;
-}
-.seminar__buttons button:hover, .seminar__buttons a:hover,
-.seminar__buttons button:focus, .seminar__buttons a:focus {
-    background-color: var(--main-color);
-    color: #fff;
-}
-
-
-.seminar__timecodes, .seminar__transcription {
+.seminar__timecodes {
     border-left: 3px solid var(--main-color);
     padding-left: 20px;
+    margin: 30px 0px 40px;
+}
+.seminar__transcription {
     margin: 30px 0px 40px;
 }
 .seminar__timecodes .seminar__h2, .seminar__transcription .seminar__h2 {
@@ -270,4 +279,85 @@
 }
 .seminar__transcription-time {
     color: var(--main-color);
+}
+
+
+.seminar__aside {
+    width: 25%;
+    list-style: none;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.seminar__aside li:not(:first-child) {
+    margin-top: 15px;
+}
+.seminar__preview {
+    background-color: #fff;
+    border-radius: var(--radius);
+    padding: 10px;
+    margin-bottom: 15px;
+    display: block;
+}
+.seminar__preview img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    margin-bottom: 5px;
+}
+.seminar__preview-time {
+    color: var(--main-color);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+
+@media (max-width: 1023px) {
+    .seminar__video video, .seminar__video iframe {
+        height: 36vw;
+    }
+    .seminar__h1 {
+        font-size: 25px;
+    }
+}
+@media (max-width: 767px) {
+    .seminar {
+        font-size: 14px;
+    }
+    .seminar__top-date {
+        font-size: 12px;
+    }
+    .seminar__h1 {
+        font-size: 20px;
+    }
+    .seminar__h2 {
+        font-size: 17px;
+    }
+    .seminar__h3, .seminar__h4 {
+        font-size: 14px;
+    }
+    .seminar__main {
+        width: 100%;
+    }
+    .seminar__aside {
+        display: none;
+    }
+    .seminar__video video, .seminar__video iframe {
+        height: 50vw;
+    }
+}
+@media (max-width: 575px) {
+    .seminar__info-text {
+        width: 100%;
+    }
+    .seminar__info .seminar__buttons {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-evenly;
+    }
+    .seminar__buttons {
+        gap: 5px 5px;
+    }
+    .seminar__buttons button, .seminar__buttons a {
+        font-size: 14px;
+    }
 }
